@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta charset="utf-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <script src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <!-- Angular Minified JavaScript -->
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/js/Controllers/MainController.js"></script>
+
+
+    <title></title>
+</head>
+
+
+<body ng-controller="MainController">
+    
+    
+
+    ver nesse site :
+    http://ngexample.com/using-ng-options-in-select/
+
+    <form name="searchUser" ng-submit="search(username, minrepo, minfollowers)">
+        Username to find:<input type="search" required placeholder="Username to find" ng-model="username" />
+        <br />
+        Minimum repositories:<input type="search" required placeholder="Minimum repositories" ng-model="minrepo" />
+        <br />
+        Minimum Followers<input type="search" required placeholder="Minimum Followers" ng-model="minfollowers" />
+        <br />
+        <input type="submit" value="Search" />
+    </form>
+
+    <!--<select>
+        <option ng-repeat="n in list.items">{{n.login}}</option>
+    </select>
+
+    <select ng-options="l as list.items.login for l in lists"
+            ng-model="item" ng-change="update()"></select>
+
+    <select ng-options="item as item.incomplete_results for item in items track by item.total_count" ng-model="selected"></select>-->
+
+    <!--<select ng-options="size as size.name for size in sizes"
+            ng-model="item" ng-change="update()"></select>
+    Then in your update() method, $scope.item will be set to the currently selected item.
+
+    And whatever code needed item.size.code, can get that property via $scope.item.code.-->
+
+    <div ng-repeat="l in list.items">
+        Usuario: {{$index}}
+        <br /> 
+        Login: {{l.login}} 
+        <br />
+        AvatarURL: {{l.avatar_url}}
+        <br/>
+        <hr />
+
+    </div>
+</body>
+</html>

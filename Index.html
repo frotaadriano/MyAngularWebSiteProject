@@ -1,6 +1,13 @@
-﻿<!DOCTYPE html>
+﻿
+
+
+<!doctype html>
 <html ng-app="myapp">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <!-- Latest compiled and minified CSS -->
     <link href="../Content/bootswatch/flatly/bootstrap.min.css" rel="stylesheet" />
     <!-- Optional theme -->
@@ -19,6 +26,8 @@
     </title>
 </head>
 <body ng-controller="MainController">
+    <!--inicio da navbar-->
+    <!--<div class="navbar navbar-static-top navbar-inverse">-->
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -32,50 +41,39 @@
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Funcionalidades <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Angular Apps<span class="caret"></span></a>
                         <ul class="dropdown-menu" aria-labelledby="themes">
                             <li>
                                 <a href="/mywebsite/githublist.html">GitHub List</a>
                             </li>
                             <li class="divider"></li>
                             <li><a href="#">Outras</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">My Networks<span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li><a href="https://github.com/frotaadriano">GitHub</a></li>
+                            <li class="divider"></li>
+                            <li><a href="http://www.linkedin.com/in/frotaadriano" target="_blank">LinkedIN</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://stackoverflow.com/users/7644479/adriano-frota">StackOverFlow</a></li>
 
                         </ul>
                     </li>
-                    <li>
-                        <a href="../help/">Help</a>
-                    </li>
-                    <li>
-                        <a href="#">Blog</a>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">xxxxxxxxxxxxxx <span class="caret"></span></a>
-                        <ul class="dropdown-menu" aria-labelledby="download">
-                            <li><a href="http://jsfiddle.net/bootswatch/jmg3gykg/">Open Sandbox</a></li>
-                            <li class="divider"></li>
-                            <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                            <li><a href="./bootstrap.css">bootstrap.css</a></li>
-                            <li class="divider"></li>
-                            <li><a href="./variables.less">variables.less</a></li>
-                            <li><a href="./bootswatch.less">bootswatch.less</a></li>
-                            <li class="divider"></li>
-                            <li><a href="./_variables.scss">_variables.scss</a></li>
-                            <li><a href="./_bootswatch.scss">_bootswatch.scss</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="../help/">Help</a></li>
+                    <li><a href="#">Blog</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" target="_blank">my LinkedIN</a></li>
-                    <li><a href="#" target="_blank">More About Angular + BootStrap + BootsWatch</a></li>
+                    <li><a href="#" target="_blank">More About: Angular + BootStrap + BootsWatch</a></li>
                 </ul>
 
             </div>
         </div>
     </div>
-
+    <!--inicio do body-->
     <div class="container">
-
         <div class="page-header" id="banner">
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-6">
@@ -86,15 +84,13 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-4">
                     <div class="list-group table-of-contents">
-                        <a class="list-group-item" href="#navbar">Item1</a>
+                        <a class="list-group-item active" href="#navbar">Item1</a>
                         <a class="list-group-item" href="#buttons">Item2</a>
 
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-4">
+                <div class="col-lg-9 col-md-9 col-sm-8">
                     <div class="list-group table-of-contents">
-
-
                         <form name="searchUser" ng-submit="search(username, minrepo, minfollowers)">
                             <table class="table table-striped table-hover ">
                                 <thead>
@@ -107,19 +103,19 @@
                                 <tbody>
                                     <tr>
                                         <td>Username to find:</td>
-                                        <td><input type="search" required placeholder="Username to find" ng-model="username" /></td>
+                                        <td><input type="search" class="form-control" required placeholder="Username to find" ng-model="username" /></td>
                                     </tr>
                                     <tr>
                                         <td> Minimum repositories: </td>
-                                        <td><input type="search" required placeholder="Minimum repositories" ng-model="minrepo" /> </td>
+                                        <td><input type="search" class="form-control" required placeholder="Minimum repositories" ng-model="minrepo" /> </td>
                                     </tr>
                                     <tr>
                                         <td>  Minimum Followers</td>
-                                        <td><input type="search" required placeholder="Minimum Followers" ng-model="minfollowers" /> </td>
+                                        <td><input type="search" class="form-control" required placeholder="Minimum Followers" ng-model="minfollowers" /> </td>
                                     </tr>
                                     <tr>
                                         <td>  </td>
-                                        <td> <input type="submit" value="Search" /></td>
+                                        <td> <input type="submit" class="btn btn-primary" value="Search" /></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -135,13 +131,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><select ng-model="selectedItem" ng-options="item.login for item in list.items"></select></td>
-                                    <td></td>
+                                <tr ng-show="showUserSelectBox">
+                                    <td>
+                                        <select class="form-control" ng-model="selectedItem" ng-options="item.login for item in list.items" ng-change="SearchUserDetails(selectedItem.login)"></select>
+                                    </td>
+                                    <td>
+                                        <div class="alert alert-dismissible alert-danger" ng-show="noData">No data available</div>
+                                    </td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -149,23 +150,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <!--<select>
-                            <option ng-repeat="n in list.items">{{n.login}}</option>
-                        </select>-->
-                       
-                        
-                       
-
-                        <br>Selected Item:{{selectedItem}}
-
-
-
-
-                        <!--<select ng-options="list.items.login for login in lists"
-                                ng-model="item" ng-change="update()"></select>-->
-
-                        <br /><br /><br /><br /><br />
-                        <div ng-repeat="l in list.items">
+                        <!--<div ng-repeat="l in list.items">
                             Usuario: {{$index}}
                             <br />
                             Login: {{l.login}}
@@ -174,21 +159,76 @@
                             <br />
                             <hr />
 
-                        </div>
-
+                        </div>-->
 
                     </div>
                 </div>
-
             </div>
+
+
+            <div class="row" ng-show="selectedItem">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h1>Dados do usuario escolhido</h1>
+
+                </div>
+                <div class="col-lg-8 col-md-7 col-sm-6">
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Login:</td>
+                            <td>{{selectedItem.login}}</td>
+                        </tr>
+                        <tr>
+                            <td>Score:</td>
+                            <td>{{selectedItem.score}}</td>
+                        </tr>
+                        <tr>
+                            <td>Repos_url:</td>
+                            <td>{{selectedItem.repos_url}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label class="label label-default">Implementar abaixo o json da chamada ao proximo metodo da API (userDetails)</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                userDetails
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!--
+
+            "login": "mojombo",
+            "id": 1,
+            "avatar_url": "https://avatars3.githubusercontent.com/u/1?v=3",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/mojombo",
+            "html_url": "https://github.com/mojombo",
+            "followers_url": "https://api.github.com/users/mojombo/followers",
+            "following_url": "https://api.github.com/users/mojombo/following{/other_user}",
+            "gists_url": "https://api.github.com/users/mojombo/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/mojombo/subscriptions",
+            "organizations_url": "https://api.github.com/users/mojombo/orgs",
+            "repos_url": "https://api.github.com/users/mojombo/repos",
+            "events_url": "https://api.github.com/users/mojombo/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/mojombo/received_events",
+            "type": "User",
+            "site_admin": false,
+            "score": 47.94022
+
+                -->
+
         </div>
 
 
-        <footer>
+        <footer class="modal-footer">
             <div class="row">
                 <div class="col-lg-12">
-
-
                 </div>
             </div>
 

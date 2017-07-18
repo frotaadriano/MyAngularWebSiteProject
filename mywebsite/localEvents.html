@@ -1,7 +1,4 @@
-﻿
-
-
-<!doctype html>
+﻿<!doctype html>
 <html ng-app="myapp">
 <head>
     <meta charset="utf-8">
@@ -11,9 +8,6 @@
     <!-- Latest compiled and minified CSS -->
     <link href="../Content/bootswatch/flatly/bootstrap.min.css" rel="stylesheet" />
     <!-- Optional theme -->
-
-
-
     <script src="../Scripts/jquery-1.9.1.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <!-- Angular Minified JavaScript -->
@@ -25,7 +19,7 @@
         MENU
     </title>
 </head>
-<body ng-controller="MainController">
+<body ng-controller="EventController">
     <!--inicio da navbar-->
     <!--<div class="navbar navbar-static-top navbar-inverse">-->
     <div class="navbar navbar-default navbar-fixed-top">
@@ -48,9 +42,6 @@
                             </li>
                             <li>
                                 <a href="/mywebsite/localEvents.html">localEvents List</a>
-                            </li>
-                            <li>
-                                <a href="/mywebsite/opdc.html">OPDC</a>
                             </li>
                             <li class="divider"></li>
                             <li><a href="#">Outras</a></li>
@@ -97,7 +88,7 @@
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-8">
                     <div class="list-group table-of-contents">
-                        <form name="searchUser" ng-submit="search(username, minrepo, minfollowers)">
+                        <form name="searchUser" ng-submit="search()">
                             <table class="table table-striped table-hover ">
                                 <thead>
                                     <tr>
@@ -108,19 +99,6 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Username to find:</td>
-                                        <td><input type="search" class="form-control" required placeholder="Username to find" ng-model="username" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td> Minimum repositories: </td>
-                                        <td><input type="search" class="form-control" required placeholder="Minimum repositories" ng-model="minrepo" /> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>  Minimum Followers</td>
-                                        <td><input type="search" class="form-control" required placeholder="Minimum Followers" ng-model="minfollowers" /> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>  </td>
                                         <td> <input type="submit" class="btn btn-primary" value="Search" /></td>
                                     </tr>
                                 </tbody>
@@ -137,100 +115,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-show="showUserSelectBox">
-                                    <td>
-                                        <select class="form-control" ng-model="selectedItem" ng-options="item.login for item in list.items" ng-change="SearchUserDetails(selectedItem.login)"></select>
-                                    </td>
-                                    <td>
-                                        <div class="alert alert-dismissible alert-danger" ng-show="noData">No data available</div>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
                                 <tr>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
                                 </tr>
+
                             </tbody>
                         </table>
-                        <!--<div ng-repeat="l in list.items">
-                            Usuario: {{$index}}
-                            <br />
-                            Login: {{l.login}}
-                            <br />
-                            AvatarURL: {{l.avatar_url}}
-                            <br />
-                            <hr />
 
-                        </div>-->
 
                     </div>
                 </div>
             </div>
-
-
-            <div class="row" ng-show="selectedItem">
-                <div class="col-lg-8 col-md-7 col-sm-6">
-                    <h1>Dados do usuario escolhido</h1>
-
-                </div>
-                <div class="col-lg-8 col-md-7 col-sm-6">
-
-                    <table class="table table-bordered">
-                        <tr>
-                            <td>Login:</td>
-                            <td>{{selectedItem.login}}</td>
-                        </tr>
-                        <tr>
-                            <td>Score:</td>
-                            <td>{{selectedItem.score}}</td>
-                        </tr>
-                        <tr>
-                            <td>Repos_url:</td>
-                            <td>{{selectedItem.repos_url}}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <label class="label label-default">Implementar abaixo o json da chamada ao proximo metodo da API (userDetails)</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                userDetails
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-            <!--
-
-            "login": "mojombo",
-            "id": 1,
-            "avatar_url": "https://avatars3.githubusercontent.com/u/1?v=3",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/mojombo",
-            "html_url": "https://github.com/mojombo",
-            "followers_url": "https://api.github.com/users/mojombo/followers",
-            "following_url": "https://api.github.com/users/mojombo/following{/other_user}",
-            "gists_url": "https://api.github.com/users/mojombo/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/mojombo/subscriptions",
-            "organizations_url": "https://api.github.com/users/mojombo/orgs",
-            "repos_url": "https://api.github.com/users/mojombo/repos",
-            "events_url": "https://api.github.com/users/mojombo/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/mojombo/received_events",
-            "type": "User",
-            "site_admin": false,
-            "score": 47.94022
-
-                -->
-
         </div>
-
 
         <footer class="modal-footer">
             <div class="row">

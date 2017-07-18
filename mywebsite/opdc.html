@@ -1,0 +1,132 @@
+﻿
+
+
+<!doctype html>
+<html ng-app="myapp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="../../Content/bootswatch/flatly/bootstrap.min.css" rel="stylesheet" />
+    <!-- Optional theme -->
+
+
+
+    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <!-- Angular Minified JavaScript -->
+    <script src="../../Scripts/angular.min.js"></script>
+    <script src="../../Scripts/angular-route.js"></script>
+    <script src="../../Scripts/js/Controllers/OpdcController.js"></script>
+
+    <title>
+        MENU
+    </title>
+</head>
+<body ng-controller="OpdcController">
+    <!--inicio da navbar-->
+    <!--<div class="navbar navbar-static-top navbar-inverse">-->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="../../" class="navbar-brand">OPDC</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Angular Apps<span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li>
+                                <a href="/mywebsite/githublist.html">GitHub List</a>
+                            </li>
+                            <li>
+                                <a href="/mywebsite/localEvents.html">localEvents List</a>
+                            </li>
+                            <li>
+                                <a href="/mywebsite/opdc.html">localEvents List</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Outras</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">My Networks<span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li><a href="https://github.com/frotaadriano">GitHub</a></li>
+                            <li class="divider"></li>
+                            <li><a href="http://www.linkedin.com/in/frotaadriano" target="_blank">LinkedIN</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://stackoverflow.com/users/7644479/adriano-frota">StackOverFlow</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="../../help/">Help</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" target="_blank">More About: Angular + BootStrap + BootsWatch</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <!--inicio do body-->
+    <div class="container">
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6">
+                    <h1>Angular + Bootstrap</h1>
+                    <p class="lead">Flat and modern</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4">
+                    <div class="list-group table-of-contents">
+                        <a class="list-group-item active" href="#navbar">Item1</a>
+                        <a class="list-group-item" href="#buttons">Item2</a>
+
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-8">
+                    <div class="list-group table-of-contents">
+
+                        <div ng-repeat="d in data">
+                            Usuario: {{$index}}
+                            <br />
+                            ID: {{d.Id}}
+                            <br />
+                            Name: {{d.Name}}
+                            <br />
+                            <hr />
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="modal-footer">
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+            </div>
+
+        </footer>
+
+
+    </div>
+
+
+
+</body>
+</html>
